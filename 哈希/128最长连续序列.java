@@ -6,8 +6,8 @@ class Solution {
             return 0;
         }
 
-        Set<Integer> set = new HashSet<>(); 
- 
+        Set<Integer> set = new HashSet<>();
+
         for (Integer num: nums) {
             set.add(num); //消去重复元素 HashSet不会加上重复元素
         }
@@ -19,7 +19,7 @@ class Solution {
                 len = 1;
                 while(set.contains(++num)) {
                     len++;
-                    max_len = (len > max_len) ? len : max_len;
+                    max_len = Math.max(max_len, len);
                 }
             }
         }
