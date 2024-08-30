@@ -27,6 +27,8 @@ class Solution {
                 dfs(nums, ans, path, onPath);
                 
                 // 回溯
+                // path.remove(index)：这个方法用于从列表中移除指定索引处的元素。
+                // 这里的 index 是 path.size() - 1，即最后一个元素的位置。
                 path.remove(path.size() - 1);
                 onPath[i] = false;
             }
