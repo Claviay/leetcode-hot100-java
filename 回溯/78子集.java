@@ -1,5 +1,7 @@
 import java.util.*;
-
+/*
+O(n * 2^n)
+*/
 class Solution {
     // 存储所有生成的子集
     private List<List<Integer>> ans = new ArrayList<>();
