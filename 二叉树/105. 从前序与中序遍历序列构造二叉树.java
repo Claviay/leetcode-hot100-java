@@ -14,7 +14,8 @@
  * }
  */
 
-// 前序dfs递归要+1  后序不用
+// 前序dfs递归 一开始要+1  然后再加leftSize  
+// 后序不用，直接+leftSize，  结尾需要 -1
 // 中序则是中间要间隔rootIndex，与rootIndex + 1 
 import java.util.*;
 class Solution {
