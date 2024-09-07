@@ -13,6 +13,9 @@
  *     }
  * }
  */
+
+// 前序dfs递归要+1  后序不用
+// 中序则是中间要间隔rootIndex，与rootIndex + 1 
 import java.util.*;
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
