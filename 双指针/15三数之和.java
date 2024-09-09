@@ -1,7 +1,8 @@
 /*
-首先排序，然后三指针，中间的为基础
-然后左右指针从最左、最右开始 while (L<R)
+首先排序，然后三指针，最左边的为基础
+然后左右指针从最左边的右边一个、最右开始 while (L<R)
 */
+
 class Solution {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -12,6 +13,7 @@ class Solution {
             if (nums[i] > 0) break; // 如果当前数字大于0，则三数之和一定大于0，所以结束循环
             
             if (i > 0 && nums[i] == nums[i-1]) continue; // 去重
+            
             int L = i + 1;
             int R = len - 1;
             while (L < R) {
