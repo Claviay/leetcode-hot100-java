@@ -14,7 +14,7 @@ public class Solution {
         }
         if (flag == 0) {
             Arrays.sort(nums);
-            return nums[0];
+            return nums[nums.length - 1];
         }
 
         // 现在是含有非负数的情况
