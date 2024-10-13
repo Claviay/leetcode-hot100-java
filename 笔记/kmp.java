@@ -22,7 +22,7 @@ public class Solution {
                 if (length != 0) {
                     length = lps[length - 1];
                 } else {
-                    // lps[i] = 0; 好像没有这个
+                    // lps[i] = 0; 有没有这句都一样，默认当然是0
 
                     i++;
                 }
