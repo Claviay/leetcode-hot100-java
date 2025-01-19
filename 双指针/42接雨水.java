@@ -1,45 +1,35 @@
-/*
-思路是慢慢把雨水填平
-哪边小就走走哪边
-
-*/
-
+import java.util.*;
 public class Solution {
     public static int trap(int[] height) {
+        int[] leftMax = new int[20001];
+        int[] rightMax = new int[20001];
+
         int len = height.length;
-        if (len <= 2) {
-            return 0;
-        }
-        
-        int result = 0;
-        int left_max = height[0];
-        int right_max = height[len - 1];
-        int i = 1, j = len - 2;
+        int leftMaxElement = height[0];
+        leftMax[0] = leftMaxElement;
+        int rightMaxElement = height[len - 1];
+        rightMax[len - 1] = rightMaxElement;
 
-        while (i <= j) {
-            if (left_max < right_max) {
-                if (height[i] < left_max) {
-                    result += left_max - height[i];
-                }
-                i++;
-                left_max = Math.max(height[i-1], left_max);  // 对比当前的高度 以及 left_max
-            } else {
-                if (height[j] < right_max) {
-                    result += right_max - height[j];
-                }
-                j--;
-                right_max = Math.max(height[j+1], right_max);   // 对比当前的高度 以及 right_max
-            }
+        for (int i = 1; i < len; i++) {
+            leftMaxElement = Math.max(leftMaxElement, height[i]);
+            leftMax[i] = leftMaxElement;
         }
 
-        return result;
-    }
+        for (int i = len - 2; i >= 0; i--) {
+            rightMaxElement = Math.max(rightMaxElement, height[i]);
+            rightMax[i] = rightMaxElement;
+        }
 
-    public static void main(String[] args) {
-        int[] h = {0,1,0,2,1,0,1,3,2,1,2,1};
-        int[] x = {4,2,0,3,2,5};
+        int res = 0;
+        for (int i = 0; i < len; i++) {
+            res += Math.min(leftMax[i], rightMax[i]) - height[i];
+        }
 
-        System.out.println(trap(h)); // 输出 6
-        System.out.println(trap(x)); // 输出 9
+        return res;
+
+
+
+
+
     }
 }
